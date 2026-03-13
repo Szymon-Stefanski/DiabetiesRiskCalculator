@@ -1,7 +1,7 @@
 import os
 import pandas as pd
+import pickle as pkl
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 
@@ -14,9 +14,6 @@ def random_forest(data):
     X = data.drop(["Diabetes_binary"], axis=1)
     y = data["Diabetes_binary"]
 
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X)
-
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     model = RandomForestClassifier()
@@ -26,7 +23,8 @@ def random_forest(data):
     print("Accuracy:", accuracy_score(y_test, y_pred))
     print("Confusion matrix:\n", confusion_matrix(y_test, y_pred))
 
-    return 0
+    return model
+
 
 def clean_data():
     data = pd.read_csv(DATA_PATH)
@@ -38,6 +36,9 @@ def clean_data():
 def main():
     data = clean_data()
     model = random_forest(data)
+
+    with open("model.pkl", "wb") as f:
+        pkl.dump(model, f)
 
 
 if __name__ == '__main__':
