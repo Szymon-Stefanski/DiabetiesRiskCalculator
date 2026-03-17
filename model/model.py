@@ -26,6 +26,11 @@ def random_forest(data):
     return model
 
 
+def make_prediction(model, X_input):
+    prediction = model.predict(X_input)
+    return prediction
+
+
 def clean_data():
     data = pd.read_csv(DATA_PATH)
     data = data.drop_duplicates()
