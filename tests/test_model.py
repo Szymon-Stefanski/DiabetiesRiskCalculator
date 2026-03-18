@@ -10,7 +10,7 @@ def load_model():
     Fixture to load the trained RandomForest model from the pickle file.
     Ensures the model is available for all test functions in this module.
     """
-    with open("../model/model.pkl", "rb") as f:
+    with open("model/model.pkl", "rb") as f:
         model = pkl.load(f)
 
     return model
