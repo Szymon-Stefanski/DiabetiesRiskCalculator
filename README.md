@@ -3,6 +3,8 @@
 A student project that uses Machine Learning to estimate the risk of diabetes based on lifestyle and health indicators. 
 The application was built using Python, Scikit-Learn, and Streamlit.
 
+**Live Demo:** https://diabetes-risk-calculator.streamlit.app/
+
 ## Project Description
 The application uses a classification model (Random Forest) trained on the CDC Diabetes Health Indicators dataset 
 (over 70000 records). The goal of the project was to create a tool that visualizes a user's health profile and 
